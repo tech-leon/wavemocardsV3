@@ -6,6 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+.DS_Store
+*.bk
+*.zip
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -78,6 +81,7 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
+.venv
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -126,8 +130,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.venv
-.DS_Store
-*.bk
-*.zip
+# Server
 .htaccess
