@@ -217,7 +217,7 @@
                         "password": pwd.value,
                         "user_name": account.value
                     }
-                    axios.post("https://api.wavemocards.com/user/login", postData)
+                    axios.post("https://api2.wavemocards.com/user/login", postData)
                     .then(function(response){
                         if(response.data.access_token!=undefined) {
                             // 登入成功
