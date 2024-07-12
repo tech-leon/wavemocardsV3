@@ -8,5 +8,5 @@ This project is under development and for coding practice. Not ready for use.
 
 ## Contributors
 
-- [<NAME>](https://github.com/elma-yo)
-- [<NAME>](https://github.com/leonfuns)
+- Elma (https://github.com/elma-yo)
+- Leon (https://github.com/leonfuns)
