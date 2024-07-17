@@ -1,5 +1,4 @@
 
-// src/pages/Contact.js
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

@@ -1,9 +1,21 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import Hero from "../components/layout/Hero";
+import { Helmet } from 'react-helmet';
 
 function Home() {
   const { t } = useTranslation();
-  return <h1>{t('pages.home.title')}</h1>;
+
+  return (
+    <>
+      <Helmet>
+        <title>
+          {t("footer.copyright")}
+        </title>
+      </Helmet>
+      <Hero />
+    </>
+  );
 }
 
 export default Home;

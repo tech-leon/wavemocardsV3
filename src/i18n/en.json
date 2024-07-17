@@ -1,17 +1,29 @@
 {
   "nav": {
+    "app": "Wave Emotion Cards",
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "emotions": "Emotions",
+    "login":"Login"
   },
-  "theme": {
-    "light": "Light",
-    "dark": "Dark"
+  "footer": {
+    "contributors": "Contributors",
+    "subtitle": "Find your Emotions over the wave",
+    "home": "首頁",
+    "about": "關於我們",
+    "contact": "聯絡我們",
+    "emotions": "認識情緒",
+    "login":"登入"
   },
   "pages": {
     "home": {
-      "title": "Welcome to Wave Emotion Cards",
-      "subtitle": "記錄情緒吧"
+      "title": "Find your Emotions",
+      "subtitle": "over the wave"
+    },
+    "about": {
+      "title": "About Wave Emotion Cards",
+      "subtitle": "We are from Taiwan"
     }
   }
 }
