@@ -6,24 +6,12 @@ function NavBar() {
   const { t } = useTranslation();
   return (
     <>
-      <nav className="flex lg:w-1/3 flex-wrap items-center text-base md:ml-auto">
-        <Link to="/" className="mr-5 hover:text-gray-900">{t("nav.home")}</Link>
-        <Link to="/about" className="mr-5 hover:text-gray-900">{t("nav.about")}</Link>
-        {/* <a class="mr-5 hover:text-gray-900">Third Link</a>
-        <a class="hover:text-gray-900">Fourth Link</a> */}
+      <nav className="flex flex-wrap items-center lg:w-1/3 space-x-2 lg:space-x-5">
+        <Link to="/">{t("nav.home")}</Link>
+        {/* <Link to="/about">{t("nav.about")}</Link> */}
+        <Link to="/emotions">{t("nav.emotions")}</Link>
       </nav>
     </>
-
-    // <nav className="bg-blue-500 p-4">
-    //   <ul className="flex space-x-4">
-    //     <li>
-    //       <Link to="/" className="text-white hover:text-gray-200">{t('nav.home')}</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/about" className="text-white hover:text-gray-200">{t('nav.about')}</Link>
-    //     </li>
-    //   </ul>
-    // </nav>
   );
 }
 
