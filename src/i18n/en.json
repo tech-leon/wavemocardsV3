@@ -8,13 +8,49 @@
     "login":"Login"
   },
   "footer": {
-    "contributors": "Contributors",
+    "titles": {
+      "report": "回報問題"
+    },
+    "contributors": {
+      "title": "Contributors",
+      "position": {
+        "pm": "Project Manager",
+        "pd": "Project Designer",
+        "fd": "Frontend Developer",
+        "fc": "Frontend Consultant",
+        "db": "Database Developer",
+        "bd": "Backend Developer",
+        "sd": "System Designer",
+        "gd": "Illustrator"
+      },
+      "name": {
+        "elma": "Shu-Ping Yu",
+        "wei": "Wei-Kai Lin",
+        "leon": "Leon Wu",
+        "yi": "Yi-Wen Fang"
+      },
+      "url": {
+        "elma": "https://www.linkedin.com/in/shu-ping-yu-238655268/",
+        "wei": "https://www.linkedin.com/in/%E5%81%89%E5%87%B1-%E6%9E%97-668aaa204/",
+        "leon": "https://theleon.at",
+        "yi": "https://a8607125167.wixsite.com/mysite/about"
+      }
+    },
+    "usefulLinks": {
+      "title":"Useful Links",
+      "list": {
+        "report": "Report an issue"
+      },
+      "url": {
+        "elma": "https://www.linkedin.com/in/shu-ping-yu-238655268/",
+        "wei": "https://www.linkedin.com/in/%E5%81%89%E5%87%B1-%E6%9E%97-668aaa204/",
+        "leon": "https://theleon.at",
+        "yi": "https://a8607125167.wixsite.com/mysite/about"
+      }
+    },
     "subtitle": "Find your Emotions over the wave",
-    "home": "首頁",
-    "about": "關於我們",
-    "contact": "聯絡我們",
-    "emotions": "認識情緒",
-    "login":"登入"
+    "copyright": "浪潮情緒卡 | Wave Emotion Cards",
+    "email": "mailto:info@wavemocards.com"
   },
   "pages": {
     "home": {
