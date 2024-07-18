@@ -9,9 +9,9 @@ function Emotions() {
   return (
     <>
       <Helmet>
-        <title>{t("footer.copyright")}</title>
+        <title>{t("pages.emotions.title.h1")} | {t("footer.copyright")}</title>
       </Helmet>
-      <section className="min-h-screen -mt-[76px] flex flex-col w-9/12 mx-auto">
+      <section className=" -mt-[76px] flex flex-col w-9/12 mx-auto">
         <h1 className="mb-4 mt-28">{t("pages.emotions.title.h1")}</h1>
         <div className="border border-slate-300"></div>
         <article className="my-5">

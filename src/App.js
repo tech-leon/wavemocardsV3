@@ -13,8 +13,9 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
-        {/* <div className={`h-full flex flex-col ${isDarkMode ? "dark" : ""}`}> */}
+        <body className="min-h-screen">
+          <Header />
+          {/* <div className={`h-full flex flex-col ${isDarkMode ? "dark" : ""}`}> */}
           <main className="flex flex-col bg-gray-100 dark:bg-gray-900">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -22,8 +23,9 @@ function App() {
               <Route path="/emotions" element={<Emotions />} />
             </Routes>
           </main>
-        {/* </div> */}
-        <Footer />
+          {/* </div> */}
+          <Footer />
+        </body>
       </Router>
     </>
   );
