@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Hero from "../components/layout/Hero";
 import { Helmet } from "react-helmet";
 
 function Emotions() {
