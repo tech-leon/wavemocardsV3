@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
 
-export default function Example() {
+export default function Hero() {
   const { t } = useTranslation();
   const { isDarkMode } = useContext(ThemeContext);
 
@@ -13,18 +13,20 @@ export default function Example() {
   return (
     <>
       <section
-        className="relative h-full flex flex-col items-center justify-center bg-local bg-cover bg-center transition-all duration-300"
+        className="flex flex-col items-center justify-center bg-local bg-cover bg-center min-h-screen -mt-[76px]"
         style={{ backgroundImage }}
       >
-        <div className="relative">
-          <h1 className="text-7xl md:text-8xl font-bold text-white mb-4 lg:pr-[300px]">
-            {t("pages.home.title")}
-          </h1>{" "}
-        </div>
-        <div className="relative z-10 text-right">
-          <h1 className="text-7xl md:text-8xl font-bold text-white mt-4 lg:pl-[300px]">
-            {t("pages.home.subtitle")}
-          </h1>
+        <div className="flex flex-col justify-center items-center">
+          {/* <div className=""> */}
+            <h1 className="text-7xl md:text-8xl font-bold text-white mb-4 lg:pr-[300px]">
+              {t("pages.home.title")}
+            </h1>{" "}
+          {/* </div> */}
+          {/* <div className=" text-right"> */}
+            <h1 className="text-7xl md:text-8xl font-bold text-white mt-4 lg:pl-[300px]">
+              {t("pages.home.subtitle")}
+            </h1>
+          {/* </div> */}
         </div>
       </section>
     </>

@@ -9,4 +9,15 @@
   a {
     @apply hover:underline hover:text-[#3c9daeff];
   }
+
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold mb-2 text-[#3c9daeff];
+  }
 }
