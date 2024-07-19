@@ -6,7 +6,7 @@ function NavBar() {
   const { t } = useTranslation();
   return (
     <>
-      <nav className="flex flex-wrap items-center lg:w-1/3 space-x-2 lg:space-x-5">
+      <nav className="flex flex-wrap items-center md:w-1/3 space-x-2 lg:space-x-5">
         <Link to="/">{t("nav.home")}</Link>
         {/* <Link to="/about">{t("nav.about")}</Link> */}
         <Link to="/emotions">{t("nav.emotions")}</Link>
