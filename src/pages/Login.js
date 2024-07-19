@@ -17,7 +17,7 @@ function Login() {
   const logIn = async () => {
     try {
       await signInWithEmailAndPassword(getAuth(), email, password);
-      navigate("/articles");
+      navigate("/");
     } catch (e) {
       setError(e.message);
     }
@@ -54,7 +54,7 @@ function Login() {
           <div className="flex gap-3 my-2">
             <p className="w-16 flex items-center">{t("pages.login.email")} </p>
             <input
-              className="w-full rounded-full px-3 py-1"
+              className="w-full rounded-full px-3 py-1 text-gray-800"
               placeholder="Your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ function Login() {
               {t("pages.login.password")}
             </p>
             <input
-              className="w-full rounded-full px-3 py-1"
+              className="w-full rounded-full px-3 py-1 text-gray-800"
               type="password"
               placeholder="Your password"
               value={password}

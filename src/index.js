@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './i18n/config';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import './services/firebase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
