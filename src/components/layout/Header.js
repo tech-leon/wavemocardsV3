@@ -3,14 +3,14 @@ import { useTranslation } from "react-i18next";
 import NavBar from "../common/NavBar";
 import ChangeLng from "../common/ChangeLng";
 import DarkModeSwitch from "../common/DarkModeSwitch";
-import LoginIcon from "../common/LoginIcon";
+import UserIcon from "../common/UserIcon";
 
 function Header() {
   const { t } = useTranslation();
 
   return (
     <>
-      <header className="sticky top-0 text-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-white shadow-md">
+      <header className="sticky top-0 text-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-white shadow-md z-50">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <NavBar />
           <a
@@ -27,7 +27,7 @@ function Header() {
             </span>
           </a>
           <div className="lg:w-1/3 inline-flex lg:justify-end ml-5 lg:ml-0">
-            <LoginIcon />
+            <UserIcon />
             <ChangeLng />
             <DarkModeSwitch />
           </div>

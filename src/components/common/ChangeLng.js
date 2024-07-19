@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../context/LanguageContext";
+import { LanguageIcon } from "@heroicons/react/16/solid";
 
 const ChangeLng = () => {
-  const { i18n } = useTranslation();
+  const { currentLanguage, changeLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -11,11 +12,11 @@ const ChangeLng = () => {
     { code: "ja", name: "日本語" },
     { code: "en", name: "English" },
   ];
-
+  
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+  const handleChangeLanguage = (lng) => {
+    changeLanguage(lng);
     setIsOpen(false);
   };
 
@@ -33,33 +34,27 @@ const ChangeLng = () => {
     };
   }, []);
 
+  const getCurrentLanguageName = () => {
+    return (
+      languages.find((lang) => lang.code === currentLanguage)?.name || "中文"
+    );
+  };
+
   return (
     <div className="relative max-w-fit mx-1" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="flex items-center border rounded border-slate-600 dark:border-slate-400 hover:text-[#3c9daeff] hover:dark:bg-white hover:bg-gray-800 justify-center space-x-1 focus:outline-none size-8"
+        className="flex items-center hover:text-[#3c9daeff] justify-center space-x-1 focus:outline-none h-9 px-2 py-1"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-          />
-        </svg>
+        <LanguageIcon className="w-5 h-5" />
+        <span className="ml-1">{getCurrentLanguageName()}</span>
       </button>
       {isOpen && (
         <div className="absolute right-0 mt-2 py-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-xl z-20">
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => changeLanguage(lang.code)}
+              onClick={() => handleChangeLanguage(lang.code)}
               className="block hover:text-[#3c9daeff] hover:dark:bg-white hover:bg-gray-800 px-4 py-2 text-sm w-full text-left"
             >
               {lang.name}

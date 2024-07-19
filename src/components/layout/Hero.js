@@ -7,8 +7,8 @@ export default function Hero() {
   const { isDarkMode } = useContext(ThemeContext);
 
   const backgroundImage = isDarkMode
-    ? "url('/images/background-dark.svg')"
-    : "url('/images/background-light.svg')";
+    ? "url('/images/bg/bg-dark.svg')"
+    : "url('/images/bg/bg-light.svg')";
 
   return (
     <>

@@ -10,7 +10,7 @@ function Footer() {
 
   return (
     <>
-      <footer className="text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-white">
+      <footer className="text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-white max-h-fit">
         <div className="container px-5  py-10 mx-auto flex items-center md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="flex flex-col w-full md:w-1/4 md:mx-0 mx-auto text-center md:text-left ">
             <a href="/" className="flex order-first lg:order-none title-font font-medium  mb-5 md:mb-0 justify-center md:justify-start items-start">

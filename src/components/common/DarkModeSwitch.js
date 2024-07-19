@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 
 function DarkModeSwitch() {
   const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
@@ -8,9 +9,9 @@ function DarkModeSwitch() {
     <>
       <button
         onClick={toggleDarkMode}
-        className="flex items-center border rounded bg-gray-700  border-slate-600 dark:border-slate-400 hover:text-[#3c9daeff] hover:dark:bg-amber-100 hover:bg-gray-900 size-8 justify-center"
+        className="flex items-center rounded-full hover:text-[#3c9daeff] hover:dark:bg-amber-100 hover:bg-gray-900 size-9 justify-center p-1"
       >
-        {isDarkMode ? "☀️" : "🌙"}
+        {isDarkMode ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}
       </button>
     </>
   );

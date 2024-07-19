@@ -5,25 +5,26 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Footer from "./components/layout/Footer";
 import Emotions from "./pages/Emotions";
+import Login from "./pages/Login";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-
   return (
     <>
       <Router>
-        <body className="min-h-screen">
+        <div className="min-h-screen">
           <Header />
-          {/* <div className={`h-full flex flex-col ${isDarkMode ? "dark" : ""}`}> */}
           <main className="flex flex-col bg-gray-100 dark:bg-gray-900">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/emotions" element={<Emotions />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
-          {/* </div> */}
           <Footer />
-        </body>
+        </div>
       </Router>
     </>
   );
