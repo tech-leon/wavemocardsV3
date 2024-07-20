@@ -21,7 +21,7 @@ function AppContent() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex flex-col flex-grow bg-gray-100 dark:bg-gray-900">
+      <main className="flex flex-col flex-grow  bg-gray-100 dark:bg-gray-900">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

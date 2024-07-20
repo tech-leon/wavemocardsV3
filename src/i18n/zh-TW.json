@@ -100,11 +100,14 @@
     "userProfile": {
       "title": "我的帳戶",
       "subtitle": "個人資料",
-      "email": "信箱:",  
-      "role": "角色:",  
-      "oldPassword": "密碼:",
-      "newPassword": "密碼:",
-      "confirmPassword": "確認密碼:",
+      "email": "信箱：",
+      "name": "名稱：",
+      "role": "角色：",  
+      "birthday": "生日：",  
+      "password": "密碼：",
+      "oldPassword": "密碼：",
+      "newPassword": "密碼：",
+      "confirmPassword": "確認密碼：",
       "save": "確認修改",
       "error": "錯誤"
     }

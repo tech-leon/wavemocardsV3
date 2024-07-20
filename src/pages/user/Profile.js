@@ -13,9 +13,9 @@ function Profile() {
           {t("nav.profile")} | {t("footer.copyright")}
         </title>
       </Helmet>
-      <div className="flex flex-col">
+
         <UserProfile />
-      </div>
+
     </>
   );
 }
