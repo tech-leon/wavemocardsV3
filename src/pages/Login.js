@@ -5,8 +5,10 @@ import { Helmet } from "react-helmet";
 import { ThemeContext } from "../context/ThemeContext";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Button from "../components/common/Button";
+// import { AuthContext } from '../context/AuthContext';
 
 function Login() {
+  // const { user } = useContext(AuthContext);
   const { t } = useTranslation();
   const { isDarkMode } = useContext(ThemeContext);
   const [email, setEmail] = useState("");

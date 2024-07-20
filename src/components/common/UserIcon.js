@@ -6,7 +6,7 @@ function UserIcon() {
   return (
     <>
       <Link
-        to="/login"
+        to="/user/profile"
         className="hover:fill-[#3c9daeff] dark:fill-gray-100 flex items-center justify-center"
       >
         <UserCircleIcon className="w-8 h-8" />
