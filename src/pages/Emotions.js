@@ -8,7 +8,9 @@ function Emotions() {
   return (
     <>
       <Helmet>
-        <title>{t("pages.emotions.title.h1")} | {t("footer.copyright")}</title>
+        <title>
+          {t("pages.emotions.title.h1")} | {t("footer.copyright")}
+        </title>
       </Helmet>
       <section className="flex flex-col w-9/12 mx-auto">
         <h1 className="mb-4 mt-12">{t("pages.emotions.title.h1")}</h1>
@@ -49,9 +51,10 @@ function Emotions() {
           <h2 className="mt-4">{t("pages.emotions.title.emotionsHealth")}</h2>
           <p>{t("pages.emotions.content.emotionsHealth")}</p>
           <div className="flex justify-end py-6">
-          <a href={t('pages.emotions.refurl')}className="text-sm">{t("pages.emotions.reference")}</a>
+            <a href={t("pages.emotions.refurl")} className="text-sm">
+              {t("pages.emotions.reference")}
+            </a>
           </div>
-          
         </article>
       </section>
     </>

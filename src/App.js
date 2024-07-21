@@ -12,6 +12,7 @@ import Emotions from "./pages/Emotions";
 import Login from "./pages/Login";
 import Profile from "./pages/user/Profile";
 import Delete from "./pages/user/Delete";
+import EmotionCards from "./pages/EmotionCards";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function AppContent() {
@@ -22,6 +23,7 @@ function AppContent() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex flex-col flex-grow  bg-gray-100 dark:bg-gray-900">
+      {window.scrollTo(0, 0)}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -40,6 +42,14 @@ function AppContent() {
             element={
               <PrivateRoute>
                 <Delete />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/emotioncards"
+            element={
+              <PrivateRoute>
+                <EmotionCards />
               </PrivateRoute>
             }
           />
