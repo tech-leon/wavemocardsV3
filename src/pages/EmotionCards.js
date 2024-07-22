@@ -11,7 +11,7 @@ function EmotionsCards() {
     <>
       <Helmet>
         <title>
-          {t("pages.emotionCards.title.h1")} | {t("footer.copyright")}
+          {t("pages.emotionCards.title")} | {t("footer.copyright")}
         </title>
       </Helmet>
       <section className="flex flex-col w-10/12 mx-auto mb-10">
