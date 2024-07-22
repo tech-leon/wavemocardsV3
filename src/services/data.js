@@ -1,14 +1,17 @@
-import React from 'react';
+// import React from 'react';
 import Connect from "./connect";
-import CardList from "../components/common/CardList";
+// import CardList from "../components/common/CardList";
 
-const Data = () => {
+export const Card = () => {
   const API_URL = `${process.env.REACT_APP_GET_EMOTION_CARDS}?lang=zh-TW`;
+  const card = Connect(API_URL);
+  console.log(card);
   return (
-    <Connect URL={API_URL}>
-      {(data) => <CardList card={data} />}
-    </Connect>
+    card
   );
 };
 
-export default Data;
+// export Card;
+//  {/* <Connect URL={API_URL}>
+//    {(data) => <CardList card={data} />}
+ // </Connect> */}

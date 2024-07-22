@@ -17,7 +17,7 @@ function Connect({ URL, children }) {
         setData(response.data);
       } catch (error) {
         if (axios.isCancel(error)) {
-          console.log('Request canceled:', error.message);
+          // console.log('Request canceled:', error.message);
         } else {
           setError(error.response?.data?.message || error.message);
         }

@@ -140,5 +140,9 @@
       "lastSignInTime": "最後登入時間：",
       "error": "錯誤"
     }
+  },
+  "element": {
+    "cardDescription": "意思：",
+    "cardExample": "例句："
   }
 }
