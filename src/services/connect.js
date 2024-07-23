@@ -14,12 +14,13 @@ function Connect({ URL, children }) {
         const response = await axios.get(URL, {
           cancelToken: source.token
         });
-        setData(response.data);
+        // 確保數據總是以數組形式返回
+        setData(Array.isArray(response.data) ? response.data : Object.values(response.data));
       } catch (error) {
         if (axios.isCancel(error)) {
-          // console.log('Request canceled:', error.message);
+          // console.log('請求已取消:', error.message);
         } else {
-          setError(error.response?.data?.message || error.message);
+          setError(`錯誤：${error.response?.data?.message || error.message}. 請稍後再試。`);
         }
       } finally {
         setLoading(false);
@@ -29,12 +30,12 @@ function Connect({ URL, children }) {
     fetchData();
 
     return () => {
-      source.cancel('Component unmounted');
+      source.cancel('組件已卸載');
     };
-  }, [URL]);  // 將 URL 加入依賴項數組
+  }, [URL]);
 
   if (loading) return <div>載入中...</div>;
-  if (error) return <div>錯誤：{error}</div>;
+  if (error) return <div>{error}</div>;
   return children(data);
 }
 

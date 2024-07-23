@@ -17,7 +17,7 @@ const categoryColors = {
 const Card = ({ card }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const bgColor = categoryColors[card.Category] || "bg-white";
+  const bgColor = categoryColors[card.category] || "bg-white";
 
   const toggleCard = () => {
     setIsOpen(!isOpen);
@@ -29,15 +29,15 @@ const Card = ({ card }) => {
         className="group group min-w-[10.8rem] px-2 cursor-pointer"
         onClick={toggleCard}
       >
-        <div
+        <div 
           className={`shadow-md border border-gray-400 rounded-2xl p-4 ${bgColor}`}
         >
           <img
             src={`/images/card/${card.ID}.svg`}
-            alt={card.Name}
+            alt={card.name}
             className="w-full h-auto group-hover:scale-110 duration-500	"
           />
-          <h3 className="text-2xl font-bold mt-2 text-center">{card.Name}</h3>
+          <h3 className="text-2xl font-bold mt-2 text-center">{card.name}</h3>
         </div>
       </div>
       {isOpen && (
@@ -50,18 +50,18 @@ const Card = ({ card }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col-reverse md:flex-row w-full">
-              <div className="flex flex-col md:w-7/12 px-5">
-                <h3 className="text-5xl font-bold mb-2">{card.Name}</h3>
+              <div className="flex flex-col md:w-7/12 px-5 text-gray-800">
+                <h3 className="text-5xl font-bold mb-2">{card.name}</h3>
                 <div className="border border-slate-300 mb-4"></div>
                 <h4 className="text-2xl">{t("element.cardDescription")}</h4>
-                <p className="text-lg mb-2">{card.Description}</p>
+                <p className="text-lg mb-2">{card.description}</p>
                 <h4 className="text-2xl">{t("element.cardExample")}</h4>
-                <p className="text-md italic">例如：{card.Example}</p>{" "}
+                <p className="text-md italic">{card.example}</p>
               </div>
               <div className="mb-6 md:mb-0 md:w-5/12">
                 <img
                   src={`/images/card/${card.ID}.svg`}
-                  alt={card.Name}
+                  alt={card.name}
                   className="w-full h-auto"
                 />
               </div>

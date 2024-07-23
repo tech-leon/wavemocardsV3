@@ -29,8 +29,8 @@ const CategoryList = ({ cards }) => {
     return <p>沒有情緒卡可顯示</p>;
   }
 
-  const categories = [...new Set(cardArray.map((card) => card.Category))];
-
+  const categories = [...new Set(cardArray.map((card) => card.category))];
+  
   const toggleCategory = (category) => {
     setOpenCategories((prev) =>
       prev.includes(category)
@@ -38,7 +38,7 @@ const CategoryList = ({ cards }) => {
         : [...prev, category]
     );
   };
-
+  
   return (
     <div className="flex flex-col space-y-4">
       {categories.map((category) => (
@@ -57,7 +57,7 @@ const CategoryList = ({ cards }) => {
             }`}
           >
             <CardList
-              cards={cardArray.filter((card) => card.Category === category)}
+              cards={cardArray.filter((card) => card.category === category)}
             />
           </div>
         </div>
