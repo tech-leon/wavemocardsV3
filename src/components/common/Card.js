@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const categoryColors = {
-  快樂: "bg-yellow-100",
-  期待: "bg-green-100",
-  安心: "bg-blue-100",
-  不安: "bg-purple-100",
-  驚訝: "bg-pink-100",
-  低落: "bg-gray-100",
-  討厭: "bg-red-100",
-  生氣: "bg-orange-100",
-  其他: "bg-indigo-100",
+  快樂: "bg-[#FFE589]",
+  期待: "bg-[#F8C18F]",
+  安心: "bg-[#CEE5AF]",
+  不安: "bg-[#E0CACA]",
+  驚訝: "bg-[#B4B9E7]",
+  低落: "bg-[#C5DDE8]",
+  討厭: "bg-[#D6CAC0]",
+  生氣: "bg-[#E0AEAE]",
+  其他: "bg-gray-200"
 };
 
 const Card = ({ card }) => {
