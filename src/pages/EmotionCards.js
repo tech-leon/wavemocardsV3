@@ -21,13 +21,6 @@ function EmotionsCards() {
           {(data) => <CategoryList cards={data} />}
         </Connect>
       </section>
-      {/* <section className="flex flex-col w-9/12 mx-auto">
-        <h1 className="mb-4 mt-12">{t("pages.emotions.title.h1")}</h1>
-        <div className="border border-slate-300"></div>
-        <Connect URL={API_URL}>
-          {(data) => <CategoryList card={data} />}
-        </Connect>
-      </section> */}
     </>
   );
 }

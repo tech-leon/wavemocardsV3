@@ -80,13 +80,3 @@ const CategoryList = ({ cards }) => {
 };
 
 export default CategoryList;
-{
-  /* <button
-            className={`border-gray-400 shrink-0 p-2 rounded-l-full items-center transition-all duration-1000 ${
-              categoryColors[category] || "bg-white"
-            } ${openCategories.includes(category) ? "font-bold border-l shadow-lg w-10 h-52" : ""}`}
-            onClick={() => toggleCategory(category)}
-          >
-            <h2 className="text-xl text-gray-800">{category}</h2>
-          </button> */
-}
