@@ -3,22 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import { ThemeContext } from "../context/ThemeContext";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useAuth } from "../hooks/useAuth";
 import Button from "../components/common/Button";
-// import { AuthContext } from '../context/AuthContext';
 
 function Login() {
-  // const { user } = useContext(AuthContext);
   const { t } = useTranslation();
+  const { login } = useAuth();
   const { isDarkMode } = useContext(ThemeContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const logIn = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      await signInWithEmailAndPassword(getAuth(), email, password);
+      await login(email, password);
       navigate("/");
     } catch (e) {
       setError(e.message);
@@ -53,7 +53,52 @@ function Login() {
             {t("pages.login.subtitle")}
           </h2>
           {error && <p className="error w-72">{error}</p>}
-          <div className="flex gap-3 my-2">
+          <form onSubmit={handleLogin} className="mt-8 space-y-6 w-full md:max-w-72">
+            <div className="w-500">
+              <label htmlFor="email" className="sr-only">{t("pages.login.email")}</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-xl focus:outline-none focus:ring-teal-700 focus:border-teal-700 focus:z-10 sm:text-sm dark:focus:border-teal-200 dark:focus:ring-teal-200"
+                placeholder={t("pages.login.email")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">{t("pages.login.password")}</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-xl focus:outline-none focus:ring-teal-700 focus:border-teal-700 focus:z-10 sm:text-sm dark:focus:border-teal-200 dark:focus:ring-teal-200"
+                placeholder={t("pages.login.password")}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <Button
+                text={t("pages.login.login")}
+                type="submit"
+                variant="login"
+              />
+            </div>
+          </form>
+          <div >
+            <Link to="/forgot-password" className=" hover:text-red-500">
+              {t("pages.login.forget")}
+            </Link>
+          </div>
+          <div className="text-center">
+            <Link to="/register" className="flex my-8 hover:text-blue-600">
+              {t("pages.login.register")}
+            </Link>
+          </div>
+          {/* <div className="flex gap-3 my-2">
             <p className="w-16 flex items-center">{t("pages.login.email")} </p>
             <input
               className="w-full rounded-full px-3 py-1 text-gray-800"
@@ -87,13 +132,7 @@ function Login() {
               type="submit"
               variant="login"
             />
-          </div>
-          <Link
-            className="flex my-8 text-gray-800 hover:text-gray-900"
-            to="/create-account"
-          >
-            {t("pages.login.register")}
-          </Link>
+          </div> */}
         </div>{" "}
       </div>
     </>

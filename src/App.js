@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { AuthProvider } from "./context/AuthContext";
@@ -10,6 +15,7 @@ import About from "./pages/About";
 import Footer from "./components/layout/Footer";
 import Emotions from "./pages/Emotions";
 import Login from "./pages/Login";
+import Register from "./pages/user/register";
 import Profile from "./pages/user/Profile";
 import Delete from "./pages/user/Delete";
 import EmotionCards from "./pages/EmotionCards";
@@ -17,18 +23,26 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function AppContent() {
   const location = useLocation();
-  const isLoginPage = location.pathname === '/login';
+  const isLoginPage = location.pathname === "/login";
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex flex-col flex-grow  bg-gray-100 dark:bg-gray-900">
-      {window.scrollTo(0, 0)}
+        {window.scrollTo(0, 0)}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/emotions" element={<Emotions />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/user/register"
+            element={
+              <PrivateRoute>
+                <Register />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/user/profile"
             element={
