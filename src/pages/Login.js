@@ -94,7 +94,7 @@ function Login() {
             </Link>
           </div>
           <div className="text-center">
-            <Link to="/register" className="flex my-8 hover:text-blue-600">
+            <Link to="/user/register" className="flex my-8 hover:text-blue-600">
               {t("pages.login.register")}
             </Link>
           </div>

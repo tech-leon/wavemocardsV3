@@ -35,14 +35,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/emotions" element={<Emotions />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/user/register"
-            element={
-              <PrivateRoute>
-                <Register />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/user/register" element={<Register />} />
           <Route
             path="/user/profile"
             element={
