@@ -15,7 +15,7 @@ import About from "./pages/About";
 import Footer from "./components/layout/Footer";
 import Emotions from "./pages/Emotions";
 import Login from "./pages/Login";
-import Register from "./pages/user/register";
+import Register from "./pages/user/Register";
 import Profile from "./pages/user/Profile";
 import Delete from "./pages/user/Delete";
 import EmotionCards from "./pages/EmotionCards";
