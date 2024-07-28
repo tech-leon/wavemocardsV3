@@ -1,11 +1,12 @@
+// components/common/Form.js
 import React from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Form = ({ formData, errors, touched, showPassword, handleInputChange, handleBlur, togglePasswordVisibility, t }) => {
+const Form = ({ fields, formData, errors, touched, showPassword, handleInputChange, handleBlur, togglePasswordVisibility, t }) => {
   const renderInput = (name, type, placeholder) => (
-    <div className="relative">
+    <div key={name} className="relative">
       <label htmlFor={name} className="sr-only">
         {placeholder}
       </label>
@@ -38,7 +39,7 @@ const Form = ({ formData, errors, touched, showPassword, handleInputChange, hand
   );
 
   const renderDatePicker = (name, placeholder) => (
-    <div className="relative w-full">
+    <div key={name} className="relative w-full">
       <label htmlFor={name} className="sr-only">
         {placeholder}
       </label>
@@ -56,19 +57,22 @@ const Form = ({ formData, errors, touched, showPassword, handleInputChange, hand
   );
 
   const renderSelect = (name, options, placeholder) => (
-    <div>
+    <div key={name}>
       <label htmlFor={name} className="sr-only">
         {placeholder}
       </label>
       <select
         id={name}
         name={name}
-        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+        className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${
+          formData[name] ? 'text-gray-900' : 'text-gray-500'
+        }`}
         value={formData[name]}
         onChange={handleInputChange}
       >
+        <option value="" disabled hidden>{placeholder}</option>
         {options.map((option) => (
-          <option key={option} value={option}>
+          <option key={option} value={option} className="text-gray-900">
             {option}
           </option>
         ))}
@@ -76,24 +80,24 @@ const Form = ({ formData, errors, touched, showPassword, handleInputChange, hand
     </div>
   );
 
+  const renderField = (field) => {
+    switch (field.type) {
+      case 'email':
+      case 'text':
+      case 'password':
+        return renderInput(field.name, field.type, t(field.placeholder));
+      case 'date':
+        return renderDatePicker(field.name, t(field.placeholder));
+      case 'select':
+        return renderSelect(field.name, field.options, t(field.placeholder));
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="rounded-md shadow-sm -space-y-px">
-      {renderInput("email", "email", t("register.email"))}
-      {renderInput("name", "text", t("register.name"))}
-      {renderInput("password", "password", t("register.password"))}
-      {renderInput("confirmPassword", "password", t("register.confirmPassword"))}
-      {renderDatePicker("birthday", t("register.birthday"))}
-      {renderSelect("occupation", [
-        "暫不透露",
-        "學生",
-        "教師",
-        "工程師",
-        "醫生",
-        "律師",
-        "商人",
-        "藝術家",
-        "其他",
-      ], t("register.occupation"))}
+    <div className="rounded-md shadow-sm -space-y-px flex flex-col gap-5">
+      {fields.map(renderField)}
     </div>
   );
 };

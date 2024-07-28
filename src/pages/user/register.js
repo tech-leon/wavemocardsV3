@@ -1,78 +1,38 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import md5 from "md5";
 import Form from "../../components/common/Form";
+import useForm from "../../hooks/useForm";
 
 const Register = () => {
   const { t } = useTranslation();
   const { login } = useAuth();
-  const [formData, setFormData] = useState({
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    confirmPassword: false,
+  });
+  const [generalError, setGeneralError] = useState("");
+
+  const initialState = {
     email: "",
     name: "",
     password: "",
     confirmPassword: "",
     birthday: null,
-    occupation: "暫不透露",
-  });
-  const [showPassword, setShowPassword] = useState({
-    password: false,
-    confirmPassword: false,
-  });
-  const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  const validateForm = useCallback(() => {
-    const newErrors = {};
-    const { email, name, password, confirmPassword } = formData;
-
-    if (touched.email && !email) {
-      newErrors.email = t("pages.register.form.emailEmptyError");
-    } else if (touched.email && !/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = t("pages.register.form.emailSyntaxError");
-    }
-
-    if (touched.name && !name) {
-      newErrors.name = t("pages.register.form.nameEmptyError");
-    }
-
-    if (touched.password && !password) {
-      newErrors.password = t("pages.register.form.passwordEmptyError");
-    } else if (
-      touched.password &&
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-        password
-      )
-    ) {
-      newErrors.password = t("pages.register.form.passwordRequirementError");
-    }
-
-    if (touched.confirmPassword && password !== confirmPassword) {
-      newErrors.confirmPassword = t("pages.register.form.confirmPasswordError");
-    }
-
-    setErrors(newErrors);
-    setIsFormValid(
-      Object.keys(newErrors).length === 0 && Object.keys(touched).length === 4
-    );
-  }, [formData, touched, t]);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setTouched((prev) => ({ ...prev, [name]: true }));
+    occupation: "",
   };
 
-  const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  useEffect(() => {
-    validateForm();
-  }, [validateForm]);
+  const {
+    formData,
+    errors,
+    touched,
+    isFormValid,
+    handleInputChange,
+    handleBlur,
+    setTouched,
+  } = useForm(initialState, t);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -82,7 +42,6 @@ const Register = () => {
       password: true,
       confirmPassword: true,
     });
-    validateForm();
     if (!isFormValid) return;
 
     try {
@@ -111,7 +70,7 @@ const Register = () => {
       await login(email, password);
     } catch (error) {
       console.error("Registration error:", error);
-      setErrors((prev) => ({ ...prev, general: error.message }));
+      setGeneralError(error.message);
     }
   };
 
@@ -119,16 +78,53 @@ const Register = () => {
     setShowPassword((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
+  const fields = [
+    { name: "email", type: "email", placeholder: "pages.register.form.email" },
+    { name: "name", type: "text", placeholder: "pages.register.form.name" },
+    { name: "password", type: "password", placeholder: "pages.register.form.password" },
+    {
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "pages.register.form.confirmPassword",
+    },
+    { name: "birthday", type: "date", placeholder: "pages.register.form.birthday" },
+    {
+      name: "occupation",
+      type: "select",
+      placeholder: "pages.register.form.occupations",
+      options: [
+        "暫不透露",
+        "學生",
+        "教師",
+        "工程師",
+        "醫生",
+        "律師",
+        "商人",
+        "藝術家",
+        "其他",
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            {t("register.title")}
+            {t("pages.register.title")}
           </h2>
         </div>
+        {generalError && (
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <span className="block sm:inline">{generalError}</span>
+          </div>
+        )}
         <form className="mt-8 space-y-6" onSubmit={handleRegister}>
           <Form
+            fields={fields}
             formData={formData}
             errors={errors}
             touched={touched}
@@ -148,7 +144,7 @@ const Register = () => {
               }`}
               disabled={!isFormValid}
             >
-              {t("register.submit")}
+              {t("pages.register.form.submit")}
             </button>
           </div>
         </form>
