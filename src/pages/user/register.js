@@ -48,7 +48,9 @@ const Register = () => {
 
     try {
       const auth = getAuth();
-      const { email, name, password, birthday, occupation } = formData;
+      const { email, name, password, 
+        // birthday, occupation 
+      } = formData;
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
