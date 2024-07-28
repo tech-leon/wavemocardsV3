@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import md5 from "md5";
 import Form from "../../components/common/Form";
 import useForm from "../../hooks/useForm";
@@ -9,6 +10,7 @@ import useForm from "../../hooks/useForm";
 const Register = () => {
   const { t } = useTranslation();
   const { login } = useAuth();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState({
     password: false,
     confirmPassword: false,
@@ -20,8 +22,8 @@ const Register = () => {
     name: "",
     password: "",
     confirmPassword: "",
-    birthday: null,
-    occupation: "",
+    // birthday: null,
+    // occupation: "",
   };
 
   const {
@@ -46,28 +48,30 @@ const Register = () => {
 
     try {
       const auth = getAuth();
-      const { email, password, birthday, occupation } = formData;
+      const { email, name, password, birthday, occupation } = formData;
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
       const user = userCredential.user;
-
+  
       const gravatarUrl = `https://www.gravatar.com/avatar/${md5(
         email.toLowerCase().trim()
       )}?d=404`;
       const response = await fetch(gravatarUrl);
       if (response.ok) {
-        await user.updateProfile({
+        await updateProfile(user, {
+          displayName: name,
           photoURL: gravatarUrl,
         });
       }
-
-      console.log("Birthday:", birthday);
-      console.log("Occupation:", occupation);
-
+  
+      // console.log("Birthday:", birthday);
+      // console.log("Occupation:", occupation);
+  
       await login(email, password);
+      navigate('/user/profile');
     } catch (error) {
       console.error("Registration error:", error);
       setGeneralError(error.message);

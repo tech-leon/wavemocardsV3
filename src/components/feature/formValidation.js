@@ -25,7 +25,7 @@ export const validateForm = (formData, touched, t) => {
     newErrors.confirmPassword = t("pages.register.form.confirmPasswordError");
   }
 
-  const isValid = Object.keys(newErrors).length === 0 && Object.keys(touched).length === 4;
-
+  const isValid = Object.keys(newErrors).length === 0 && 
+    touched.name && touched.email && touched.password && touched.confirmPassword;
   return { isValid, newErrors };
 };

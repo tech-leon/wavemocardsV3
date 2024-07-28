@@ -20,6 +20,7 @@ export const useAuth = () => {
 
       localStorage.setItem('userToken', token);
       console.log('User token:', token);
+      console.log('User:', user);
 
       // 發送 token 到後端，後端將設置 HTTP-only cookie
       // await api.post('/api/set-token', { token });

@@ -98,41 +98,6 @@ function Login() {
               {t("pages.login.register")}
             </Link>
           </div>
-          {/* <div className="flex gap-3 my-2">
-            <p className="w-16 flex items-center">{t("pages.login.email")} </p>
-            <input
-              className="w-full rounded-full px-3 py-1 text-gray-800"
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="flex gap-3 my-2">
-            <p className="w-16 flex items-center">
-              {t("pages.login.password")}
-            </p>
-            <input
-              className="w-full rounded-full px-3 py-1 text-gray-800"
-              type="password"
-              placeholder="Your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col w-72">
-            <Link
-              to="/forgot-password"
-              className="text-gray-800 hover:text-gray-900 flex self-end text-sm w-fit"
-            >
-              {t("pages.login.forget")}
-            </Link>
-            <Button
-              text={t("pages.login.login")}
-              onClick={logIn}
-              type="submit"
-              variant="login"
-            />
-          </div> */}
         </div>{" "}
       </div>
     </>

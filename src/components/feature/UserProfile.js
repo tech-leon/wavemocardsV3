@@ -37,6 +37,9 @@ function UserProfile() {
             {t("pages.userProfile.role")} {user.emailVerified || "Not set"}
           </p>
           <p>
+            {t("pages.userProfile.photoURL")} {user.photoURL || "Not set"}
+          </p>
+          <p>
             {t("pages.userProfile.creationTime")} {user.metadata.creationTime || "Not set"}
           </p>
           <p>

@@ -105,6 +105,7 @@
       "subtitle": "個人資料",
       "email": "信箱：",
       "name": "名稱：",
+      "photoURL": "照片網址：",
       "role": "角色：",  
       "birthday": "生日：",  
       "password": "密碼：",
