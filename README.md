@@ -1,2 +1,3 @@
-# wavemocardsV2
-  浪潮情緒卡 待上線版
+# Wave Emotion Cards | 浪潮情緒卡 V3
+
+Current version
